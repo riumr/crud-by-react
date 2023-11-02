@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createClient } from '@supabase/supabase-js';
-import supabase from './supabse';
+import SupabaseTable from './supabaseTest';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <SupabaseTable />
     <App />
-    <supabase/>
   </React.StrictMode>
 );
 
