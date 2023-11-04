@@ -1,6 +1,4 @@
-import { initializeApp } from "firebase/app";
-
-const firebaseConfig = {
+const configuration = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "crud-20c6e.firebaseapp.com",
   databaseURL: "https://crud-20c6e-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -11,5 +9,4 @@ const firebaseConfig = {
   measurementId: "G-ZMXN1D26JN"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export default configuration
