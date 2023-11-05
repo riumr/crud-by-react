@@ -2,20 +2,18 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import configuration from "../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore"; 
-import { useEffect } from "react";
+
 const app = initializeApp(configuration);
 const db = getFirestore(app);
 
 function Home(){    
-    useEffect(()=>{
-        const getData = async() => {
-            const querySnapshot = await getDocs(collection(db, "users"));
-            querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data()}`);
-            });
-        }
-        getData();
-    },)
+    async function f() {
+        const querySnapshot = await getDocs(collection(db, "users"));
+        querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+        });
+    }
+    f()
     return (
         <div>
             <h1>Home</h1>
