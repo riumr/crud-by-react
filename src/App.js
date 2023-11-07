@@ -1,10 +1,12 @@
-import Home from './component/Home';
+import Home from './Component/home';
+import {Create, FormTest} from './Component/create';
 
 function App() {
-  const home = <Home/>
   return (
     <div>
-      {home}
+      <Home/>
+      <Create/>
+      <FormTest/>
     </div>
   );
 }
