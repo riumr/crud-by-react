@@ -1,12 +1,13 @@
 import Home from './Component/home';
-import {Create, FormTest} from './Component/create';
+import CreateForm from './Component/create';
+import Detail from './Component/detail';
 
 function App() {
   return (
     <div>
       <Home/>
-      <Create/>
-      <FormTest/>
+      <CreateForm/>
+      <Detail/>
     </div>
   );
 }
