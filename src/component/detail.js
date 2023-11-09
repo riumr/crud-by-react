@@ -11,14 +11,16 @@ function Detail() {
     const [data,setData] = useState([]);
     useEffect(()=>{
         const fetchDoc = async() =>{
-            const q = query(collection(db, "indexTable"),where("title","==","atitle"));
+            const currentUrl = window.location.href
+            const params = currentUrl.split("/")[currentUrl.split('/').length-1]
+            const q = query(collection(db, "indexTable"),where("title","==",params));
             const querySnapshot = await getDocs(q); 
             const docs = [];
             querySnapshot.forEach((doc) => {
                 const docsData = doc.data()
                 docs.push(docsData)
             });
-        setData(docs)
+            setData(docs)
         }
         fetchDoc()
     },[])

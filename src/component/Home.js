@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection,getDocs } from "firebase/firestore"; 
+import { Link } from "react-router-dom";
 import configuration from "../firebaseConfig";
 
 const app = initializeApp(configuration);
@@ -36,7 +37,9 @@ function Home(){
                     {data.map((td,index)=>(
                         <tr key={index}>
                             <td>{td.id}</td>
-                            <td>{td.title}</td>
+                            <td>
+                                <Link to={`/detail/${td.title}`}>{td.title}</Link>
+                            </td>
                         </tr>
                     ))}
                 </tbody>     
