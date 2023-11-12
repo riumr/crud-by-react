@@ -4,6 +4,7 @@ import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import './index.css';
 import App from './App';
 import Detail from './Component/detail';
+import Update from './Component/update';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path:"/detail/:id",
     element:<Detail/>,
+  },
+  {
+    path:"/update/:id",
+    element:<Update/>,
   }
 ]);
 
