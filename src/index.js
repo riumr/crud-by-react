@@ -5,12 +5,17 @@ import './index.css';
 import App from './App';
 import Detail from './Component/detail';
 import Update from './Component/update';
+import Create from './Component/create';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+  },
+  {
+    path:"/create",
+    element:<Create/>,
   },
   {
     path:"/detail/:id",

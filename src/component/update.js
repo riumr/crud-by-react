@@ -1,66 +1,74 @@
 import { useEffect,useState } from "react";
 import { initializeApp } from "firebase/app";
-import { getFirestore,setDoc } from "firebase/firestore";
-import { collection, query, where, getDocs, doc } from "firebase/firestore";
+import { getFirestore,getDoc,doc,setDoc } from "firebase/firestore";
 import configuration from "../firebaseConfig";
 
 const app = initializeApp(configuration);
 const db = getFirestore(app);
+const currentUrl = window.location.href
+const params = currentUrl.split("/")[currentUrl.split('/').length-1]
 
-function Update() {
-    const [data,setData] = useState([]);
-        useEffect(()=>{
-            const fetchDoc = async() =>{
-                const currentUrl = window.location.href
-                const params = currentUrl.split("/")[currentUrl.split('/').length-1]
-                const q = query(collection(db, "indexTable"),where("title","==",params));
-                const querySnapshot = await getDocs(q); 
-                const docs = [];
-                querySnapshot.forEach((doc) => {
-                    const docsData = doc.data()
-                    docs.push(docsData)
-                });
-                setData(docs)
-            }
-            fetchDoc()
-        },[])
-        console.log("update page")
-        return(
-            <div>
-                {data.map((detailDoc,index)=>(
-                        <div key={index}>
-                            <form onSubmit={HandleUpdate}>
-                                <div>
-                                    <h3>Title</h3>
-                                    <input defaultValue={detailDoc.title}></input>
-                                </div>
-                                <div>
-                                    <h3>Content</h3>
-                                    <input defaultValue={detailDoc.content}></input>
-                                </div>
-                                <button type="submit">update</button>
-                            </form>
-                       </div>
-                    ))}
-            </div>
-        )
-}
-
-function HandleUpdate(event){
-    event.preventDefault(); 
-    const currentUrl = window.location.href
-    const params = currentUrl.split("/")[currentUrl.split('/').length-1]
-    const formData = new FormData(event.target);
-    const titleInput = formData.get("title")
-    const contentInput = formData.get("content")
-    const q = query(collection(db, "indexTable"),where("title","==",params));
-    const docId = q.id
-    const ref = doc(db,'indexTable',docId);
-    setDoc(ref,{
-        title:titleInput,
-        content:contentInput,
-    })
-    } 
-
+const Update = () => {
+    // input 필드의 default value로 사용할 값을 가져온다.
+    const [formData, setFormData] = useState({
+      title: '',
+      content: '',
+    });
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        const bringDoc = doc(db, "indexTable", params);
+        const bringRef = await getDoc(bringDoc);
+        setFormData(bringRef.data());
+      };
+      fetchData();
+    }, []);
+    
+  // input 필드의 값을 변화시킬 때는 onchange 속성과 그 때 트리거 될 함수 설정이 필요하다.
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({
+        ...formData,
+        // title : input value
+        [name]: value, 
+      });
+    };
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const ref = doc(db, 'indexTable', params);
+      setDoc(ref, {
+        title: formData.title,
+        content: formData.content,
+        timestamp:formData.timestamp
+        });
+      console.log("submitted")
+    };
+  
+    return (
+      <form onSubmit={handleSubmit}>
+        <label>title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+        />
+        <br/>
+        <label>content</label>
+        <textarea
+          type="text"
+          id="content"
+          name="content"
+          rows="5"
+          value={formData.content}
+          onChange={handleChange}
+        />
+        <br/>
+        <button type="submit">제출</button>
+      </form>
+    );
+  };
 
 export default Update;

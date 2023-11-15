@@ -13,8 +13,9 @@ function Detail() {
         const fetchDoc = async() =>{
             const currentUrl = window.location.href
             const params = currentUrl.split("/")[currentUrl.split('/').length-1]
-            const q = query(collection(db, "indexTable"),where("title","==",params));
-            const querySnapshot = await getDocs(q); 
+            console.log(params)
+            const q = query(collection(db, "indexTable"),where("timestamp","==",params));
+            const querySnapshot = await getDocs(q);
             const docs = [];
             querySnapshot.forEach((doc) => {
                 const docsData = doc.data()
@@ -27,7 +28,7 @@ function Detail() {
     return(
         <div>
             {data.map((detailDoc,index)=>(
-                    <div key={index}>
+                <div key={index}>
                         <div>
                         <h3>Title</h3>
                             <p>{detailDoc.title}</p>

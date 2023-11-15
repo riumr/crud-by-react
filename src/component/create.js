@@ -1,11 +1,19 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, addDoc } from "firebase/firestore"; 
+import { setDoc,doc } from "firebase/firestore"; 
 import { useForm } from "react-hook-form";
 import configuration from "../firebaseConfig";
 
 const app = initializeApp(configuration);
 const db = getFirestore(app);
+// 등록되는 시점의 시간을 사용한 timeId 생성
+const currentDate = new Date();
+const year = currentDate.getFullYear();
+const month = currentDate.getMonth() + 1;
+const day = currentDate.getDate();
+const hours = currentDate.getHours();
+const minutes = currentDate.getMinutes();
+const seconds = currentDate.getSeconds();
 
 function CreateForm(){
     // eslint-disable-next-line
@@ -23,11 +31,14 @@ function CreateForm(){
 const sendToDoc = (data) =>{
     const titleInput = data.title;
     const contentInput = data.content;
+    const timeId = year + month + day + hours + minutes + seconds;
+    const timeIdString = String(timeId)
     try {
         const docRef = async()=> {
-            await addDoc(collection(db, "indexTable"), {
+            await setDoc(doc(db, "indexTable",timeIdString), {
                 title: titleInput,
                 content: contentInput,
+                timestamp: timeIdString,
             });
         }
         docRef()      

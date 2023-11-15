@@ -36,9 +36,9 @@ function Home(){
                 <tbody>
                     {data.map((td,index)=>(
                         <tr key={index}>
-                            <td>{td.id}</td>
+                            <td>{td.timestamp}</td>
                             <td>
-                                <Link to={`/detail/${td.title}`}>{td.title}</Link>
+                                <Link to={`/detail/${td.timestamp}`}>{td.title}</Link>
                             </td>
                         </tr>
                     ))}
