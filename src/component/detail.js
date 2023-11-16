@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import configuration from "../firebaseConfig";
+import Delete from "./delete";
 
 const app = initializeApp(configuration);
 const db = getFirestore(app);
@@ -29,16 +30,17 @@ function Detail() {
         <div>
             {data.map((detailDoc,index)=>(
                 <div key={index}>
-                        <div>
-                        <h3>Title</h3>
-                            <p>{detailDoc.title}</p>
-                        </div>
-                        <div>
-                        <h3>Content</h3>
-                            <p>{detailDoc.content}</p>
-                        </div>
+                    <div>
+                    <h3>Title</h3>
+                        <p>{detailDoc.title}</p>
                     </div>
-                ))}
+                    <div>
+                    <h3>Content</h3>
+                        <p>{detailDoc.content}</p>
+                    </div>
+                    <button onClick={Delete}>삭제</button>
+                </div>
+            ))}
         </div>
     )
 }
