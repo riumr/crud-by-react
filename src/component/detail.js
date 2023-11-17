@@ -31,16 +31,17 @@ function Detail() {
             {data.map((detailDoc,index)=>(
                 <div key={index}>
                     <div>
-                    <h3>Title</h3>
+                        <h3>Title</h3>
                         <p>{detailDoc.title}</p>
                     </div>
                     <div>
-                    <h3>Content</h3>
+                        <h3>Content</h3>
                         <p>{detailDoc.content}</p>
                     </div>
                     <button onClick={Delete}>삭제</button>
                 </div>
             ))}
+            <a href="/">목록</a>
         </div>
     )
 }

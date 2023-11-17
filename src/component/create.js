@@ -19,12 +19,15 @@ function CreateForm(){
     // eslint-disable-next-line
     const {register,handleSubmit,formState:{ errors }} = useForm();
     return (
-        <form onSubmit={handleSubmit(sendToDoc)}>
-            <input {...register('title')} />
-            <textarea rows={10} {...register('content', { required: true })} />
-            {errors.content && <p>Last name is required.</p>}
-            <input type="submit" />
-        </form>
+        <div>
+            <form onSubmit={handleSubmit(sendToDoc)}>
+                <input {...register('title')} />
+                <textarea rows={10} {...register('content', { required: true })} />
+                {errors.content && <p>Last name is required.</p>}
+                <input type="submit" />
+            </form>
+            <a href="/">목록</a>
+        </div>
     );
 }
 
