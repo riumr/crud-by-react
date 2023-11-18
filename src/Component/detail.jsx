@@ -8,7 +8,7 @@ import Delete from "./delete";
 const app = initializeApp(configuration);
 const db = getFirestore(app);
 
-function Detail() {
+const Detail = () => {
     const [data,setData] = useState([]);
     useEffect(()=>{
         const fetchDoc = async() =>{

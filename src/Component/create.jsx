@@ -15,7 +15,7 @@ const hours = currentDate.getHours();
 const minutes = currentDate.getMinutes();
 const seconds = currentDate.getSeconds();
 
-function CreateForm(){
+const CreateForm = () =>{
     // eslint-disable-next-line
     const {register,handleSubmit,formState:{ errors }} = useForm();
     return (

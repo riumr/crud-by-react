@@ -8,7 +8,7 @@ import configuration from "../firebaseConfig";
 const app = initializeApp(configuration);
 const db = getFirestore(app);
 
-function Home(){
+const Home = () =>{
     const [data,setData] = useState([]);
     useEffect(()=>{
         const fetchData = async() => {
