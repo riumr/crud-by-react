@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { useLoaderData } from "react-router-dom";
 import configuration from "../firebaseConfig";
 import Delete from "./delete";
 
