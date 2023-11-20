@@ -1,24 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './style.css';
 import App from './App';
-import Detail, {loader as detailLoader} from './Component/detail';
+import Detail from './Component/detail';
 import Update from './Component/update';
 import Create from './Component/create';
 import reportWebVitals from './reportWebVitals';
 
+const router = createBrowserRouter([
+    {
+      path:"/" ,
+      element:<App/>,
+    },
+    {
+      path:"/create",
+      element:<Create/>
+    },
+    {
+      path:"/detail/:id",
+      element:<Detail/>
+    },
+    {
+      path:"/update/:id",
+      element:<Update/>
+    }
+])
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App/>}></Route>
-        <Route path="/create" element={<Create/>}></Route>
-        <Route path="/detail/:id" element={<Detail/>}/>
-        <Route path="/update/:id" element={<Update/>}></Route>
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
 
