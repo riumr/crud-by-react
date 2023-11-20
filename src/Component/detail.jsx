@@ -2,7 +2,7 @@ import { useEffect,useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { useLoaderData } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import configuration from "../firebaseConfig";
 import Delete from "./delete";
 
@@ -27,6 +27,9 @@ const Detail = () => {
         }
         fetchDoc()
     },[])
+    if (!data){
+        return <Navigate to="/"/>
+    }
     return(
         <div>
             {data.map((detailDoc,index)=>(
@@ -45,8 +48,7 @@ const Detail = () => {
             <a href="/">목록</a>
         </div>
     )
+    
 }
-
-
 
 export default Detail;
