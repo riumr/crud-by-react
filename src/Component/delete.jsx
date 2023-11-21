@@ -4,12 +4,17 @@ import configuration from "../firebaseConfig";
 
 const app = initializeApp(configuration);
 const db = getFirestore(app);
-const currentUrl = window.location.href
-const params = currentUrl.split("/")[currentUrl.split('/').length-1]
 
 const Delete = async() => {
-    await deleteDoc(doc(db, "indexTable", params));
-    console.log("deleted")
+    try {
+        const currentUrl = window.location.href
+        const params = currentUrl.split("/")[currentUrl.split('/').length-1]
+        await deleteDoc(doc(db, "indexTable", params));
+        console.log("deleted")
+        window.location.href="/"
+    } catch(error){
+        console.log(error)
+    }
 }
     
 export default Delete;

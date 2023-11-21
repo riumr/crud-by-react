@@ -31,21 +31,19 @@ const CreateForm = () =>{
     );
 }
 
-const sendToDoc = (data) =>{
+const sendToDoc = async(data) =>{
     const titleInput = data.title;
     const contentInput = data.content;
     const timeId = year + month + day + hours + minutes + seconds;
     const timeIdString = String(timeId)
     try {
-        const docRef = async()=> {
-            await setDoc(doc(db, "indexTable",timeIdString), {
-                title: titleInput,
-                content: contentInput,
-                timestamp: timeIdString,
-            });
-        }
-        docRef()      
+        await setDoc(doc(db, "indexTable",timeIdString), {
+            title: titleInput,
+            content: contentInput,
+            timestamp: timeIdString,
+        });
         console.log("Document written");
+        window.location.href="/"
     } catch (e) {
     console.error("Error adding document: ", e);
     }

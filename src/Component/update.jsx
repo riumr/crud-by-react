@@ -34,15 +34,17 @@ const Update = () => {
       });
     };
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       const ref = doc(db, 'indexTable', params);
-      setDoc(ref, {
+      await setDoc(ref, {
         title: formData.title,
         content: formData.content,
         timestamp:formData.timestamp
-        });
+        }
+      );
       console.log("submitted")
+      window.location.href=`/detail/${params}`
     };
   
     return (

@@ -2,12 +2,13 @@ import { useEffect,useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { Navigate } from "react-router-dom";
 import configuration from "../firebaseConfig";
 import Delete from "./delete";
 
 const app = initializeApp(configuration);
 const db = getFirestore(app);
+const currentUrl = window.location.href
+const params = currentUrl.split("/")[currentUrl.split('/').length-1]
 
 const Detail = () => {
     const [data,setData] = useState([]);
@@ -27,9 +28,6 @@ const Detail = () => {
         }
         fetchDoc()
     },[])
-    if (!data){
-        return <Navigate to="/"/>
-    }
     return(
         <div>
             {data.map((detailDoc,index)=>(
@@ -46,6 +44,7 @@ const Detail = () => {
                 </div>
             ))}
             <a href="/">목록</a>
+            <a href={`/update/${params}`}>수정</a>
         </div>
     )
     

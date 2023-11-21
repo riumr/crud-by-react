@@ -44,6 +44,7 @@ const Home = () =>{
                     ))}
                 </tbody>     
             </table>
+            <a href="/create">작성하기</a>
         </div>
     )
 }
