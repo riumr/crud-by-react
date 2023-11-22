@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore,getDoc,doc,setDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 import configuration from "../firebaseConfig";
 
 const app = initializeApp(configuration);
@@ -71,7 +72,7 @@ const Update = () => {
           <br/>
           <button type="submit">제출</button>
         </form>
-        <a href="/">목록</a>
+        <Link to="/">목록</Link>
       </div>
     );
   };

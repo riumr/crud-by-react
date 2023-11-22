@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { Link } from "react-router-dom";
 import configuration from "../firebaseConfig";
 import Delete from "./delete";
 
@@ -28,6 +29,7 @@ const Detail = () => {
         }
         fetchDoc()
     },[])
+    console.log(params)
     return(
         <div>
             {data.map((detailDoc,index)=>(
@@ -43,11 +45,10 @@ const Detail = () => {
                     <button onClick={Delete}>삭제</button>
                 </div>
             ))}
-            <a href="/">목록</a>
-            <a href={`/update/${params}`}>수정</a>
+            <Link to="/">목록</Link>
+            <Link to={`/update/${params}`}>수정</Link>
         </div>
     )
-    
 }
 
 export default Detail;
