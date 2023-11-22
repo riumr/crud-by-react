@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import './style.css';
 import App from './App';
 import Detail from './Component/detail';
 import Update from './Component/update';
@@ -19,7 +18,7 @@ const router = createBrowserRouter([
     },
     {
       path:"/detail/:id",
-      element:<Detail/>
+      element:<Detail/>,
     },
     {
       path:"/update/:id",

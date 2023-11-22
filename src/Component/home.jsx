@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection,getDocs } from "firebase/firestore"; 
 import { Link } from "react-router-dom";
+import "../Styles/home.css"
 import configuration from "../firebaseConfig";
 
 const app = initializeApp(configuration);
@@ -24,27 +25,29 @@ const Home = () =>{
     },[])
     console.log(data)
     return (
-        <div>
-            <h1>Home</h1>
-            <table>
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                </tr>
-                </thead>  
-                <tbody>
-                    {data.map((td,index)=>(
-                        <tr key={index}>
-                            <td>{td.timestamp}</td>
-                            <td>
-                                <Link to={`/detail/${td.timestamp}`}>{td.title}</Link>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>     
-            </table>
-            <a href="/create">작성하기</a>
+        <div className="home">
+            <div>
+                <h1>Home</h1>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                    </tr>
+                    </thead>  
+                    <tbody>
+                        {data.map((td,index)=>(
+                            <tr key={index}>
+                                <td>{td.timestamp}</td>
+                                <td>
+                                    <Link to={`/detail/${td.timestamp}`}>{td.title}</Link>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>     
+                </table>
+                <Link to="/create">작성하기</Link>
+            </div>
         </div>
     )
 }
