@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { setDoc,doc } from "firebase/firestore"; 
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import configuration from "../firebaseConfig";
 
 const app = initializeApp(configuration);
@@ -26,7 +27,7 @@ const CreateForm = () =>{
                 {errors.content && <p>Last name is required.</p>}
                 <input type="submit" />
             </form>
-            <a href="/">목록</a>
+            <Link to="/">목록</Link>
         </div>
     );
 }
