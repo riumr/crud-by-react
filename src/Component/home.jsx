@@ -4,6 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { collection,getDocs } from "firebase/firestore"; 
 import { Link } from "react-router-dom";
 import "../Styles/home.css"
+import 'tailwindcss/tailwind.css';
 import configuration from "../firebaseConfig";
 
 const app = initializeApp(configuration);
@@ -25,10 +26,10 @@ const Home = () =>{
     },[])
     console.log(data)
     return (
-        <div className="home">
-            <div>
-                <h1>Home</h1>
-                <table>
+        <div>
+            <div className="home-div">
+                <h1 className="text-3xl underline">Home</h1>
+                <table className="home-table mt-2">
                     <thead>
                     <tr>
                         <th>ID</th>
