@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore,getDoc,doc,setDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import "../Styles/common.css"
 import configuration from "../firebaseConfig";
 
 const app = initializeApp(configuration);
@@ -49,7 +50,7 @@ const Update = () => {
     };
   
     return (
-      <div>
+      <div className="top-div">
         <form onSubmit={handleSubmit}>
           <label>title</label>
           <input

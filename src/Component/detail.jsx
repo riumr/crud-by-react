@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import "../Styles/common.css"
 import configuration from "../firebaseConfig";
 import Delete from "./delete";
 
@@ -31,7 +32,7 @@ const Detail = () => {
     },[])
     console.log(params)
     return(
-        <div>
+        <div className="top-div">
             {data.map((detailDoc,index)=>(
                 <div key={index}>
                     <div>
