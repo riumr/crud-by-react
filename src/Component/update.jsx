@@ -50,30 +50,32 @@ const Update = () => {
     };
   
     return (
-      <div className="top-div">
-        <form onSubmit={handleSubmit}>
-          <label>title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
-          <br/>
-          <label>content</label>
-          <textarea
-            type="text"
-            id="content"
-            name="content"
-            rows="5"
-            value={formData.content}
-            onChange={handleChange}
-          />
-          <br/>
-          <button type="submit">제출</button>
-        </form>
-        <Link to="/">목록</Link>
+      <div className="container-div">
+        <div className="top-div">
+          <form onSubmit={handleSubmit}>
+            <label>title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+            />
+            <br/>
+            <label>content</label>
+            <textarea
+              type="text"
+              id="content"
+              name="content"
+              rows="5"
+              value={formData.content}
+              onChange={handleChange}
+            />
+            <br/>
+            <button type="submit">제출</button>
+          </form>
+          <Link to="/">목록</Link>
+        </div>
       </div>
     );
   };

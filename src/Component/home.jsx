@@ -27,7 +27,7 @@ const Home = () =>{
     },[])
     console.log(data)
     return (
-        <div>
+        <div className="container-div">
             <div className="top-div">
                 <h1 className="text-3xl underline">Home</h1>
                 <table className="home-table mt-2">

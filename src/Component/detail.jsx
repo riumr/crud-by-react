@@ -32,22 +32,24 @@ const Detail = () => {
     },[])
     console.log(params)
     return(
-        <div className="top-div">
-            {data.map((detailDoc,index)=>(
-                <div key={index}>
-                    <div>
-                        <h3>Title</h3>
-                        <p>{detailDoc.title}</p>
+        <div className="container-div">
+            <div className="top-div">
+                {data.map((detailDoc,index)=>(
+                    <div key={index}>
+                        <div>
+                            <h3>Title</h3>
+                            <p>{detailDoc.title}</p>
+                        </div>
+                        <div>
+                            <h3>Content</h3>
+                            <p>{detailDoc.content}</p>
+                        </div>
+                        <button onClick={Delete}>삭제</button>
                     </div>
-                    <div>
-                        <h3>Content</h3>
-                        <p>{detailDoc.content}</p>
-                    </div>
-                    <button onClick={Delete}>삭제</button>
-                </div>
-            ))}
-            <Link to="/">목록</Link>
-            <Link to={`/update/${params}`}>수정</Link>
+                ))}
+                <Link to="/">목록</Link>
+                <Link to={`/update/${params}`}>수정</Link>
+            </div>
         </div>
     )
 }
