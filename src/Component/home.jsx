@@ -28,28 +28,46 @@ const Home = () =>{
     console.log(data)
     return (
         <div className="container-div">
-            <div className="top-div">
+            <header className="my-3">
                 <h1 className="text-3xl underline">Home</h1>
-                <table className="home-table mt-2">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                    </tr>
-                    </thead>  
-                    <tbody>
-                        {data.map((td,index)=>(
-                            <tr key={index}>
-                                <td>{td.timestamp}</td>
-                                <td>
-                                    <Link to={`/detail/${td.timestamp}`}>{td.title}</Link>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>     
-                </table>
-                <Link to="/create">작성하기</Link>
+                <input type="search" className="search-box rounded-[5rem] ms-3 w-96 h-10 p-3"/>
+            </header>
+            <div className="home-banner">
+                {/* carousel */}
             </div>
+            <main>
+                <div className="home-category">
+                    {/* category */}
+                </div>
+                <div className="home-login">
+                    {/* login */}
+                </div>
+                <div className="home-recommend">
+                    {/* recommend item */}
+                </div>
+                {/* item */}
+                <div className="item">
+                    <table className="home-table mt-2">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                        </tr>
+                        </thead>  
+                        <tbody>
+                            {data.map((td,index)=>(
+                                <tr key={index}>
+                                    <td>{td.timestamp}</td>
+                                    <td>
+                                        <Link to={`/detail/${td.timestamp}`}>{td.title}</Link>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>     
+                    </table>
+                    <Link to="/create">작성하기</Link>
+                </div>
+            </main>
         </div>
     )
 }

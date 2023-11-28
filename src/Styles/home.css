@@ -1,4 +1,24 @@
-.home-table{
+header {
+    display: flex;
+}
+
+.home-banner {
+    width: 100%;
+    height: 15rem;
+    background-color: grey;
+}
+
+.item {
+    width: max-content;
+    height: max-content;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1rem 3rem 1rem 3rem;
+    margin: 10rem 0 0 0 ;
+}
+
+.home-table {
     width: 30rem;
     height: 8rem;
     margin: 0px 0px 8px 0px;
