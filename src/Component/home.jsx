@@ -29,44 +29,33 @@ const Home = () =>{
     return (
         <div className="container-div">
             <header className="my-3">
-                <h1 className="text-3xl underline">Home</h1>
-                <input type="search" className="search-box rounded-[5rem] ms-3 w-96 h-10 p-3"/>
+                <h1 className="text-3xl">Home</h1>
+                <input type="search" className="search-box rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
             </header>
-            <div className="home-banner">
+            <div className="home-banner h-80 bg-zinc-400">
                 {/* carousel */}
             </div>
             <main>
-                <div className="home-category">
-                    {/* category */}
+                <div className="home-category-login h-36 grid grid-cols-6 gap-3 my-2">
+                    <div className="home-category col-span-4 bg-zinc-300">
+                        {/* category */}
+                    </div>
+                    <div className="home-login col-span-2 bg-zinc-300">
+                        {/* login */}
+                    </div>
                 </div>
-                <div className="home-login">
-                    {/* login */}
-                </div>
-                <div className="home-recommend">
+                <div className="home-recommend h-44 flex gap-2 my-2">
                     {/* recommend item */}
+                    <div className="flex-auto bg-zinc-300"></div>
+                    <div className="flex-auto bg-zinc-300"></div>
                 </div>
-                {/* item */}
-                <div className="item">
-                    <table className="home-table mt-2">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                        </tr>
-                        </thead>  
-                        <tbody>
-                            {data.map((td,index)=>(
-                                <tr key={index}>
-                                    <td>{td.timestamp}</td>
-                                    <td>
-                                        <Link to={`/detail/${td.timestamp}`}>{td.title}</Link>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>     
-                    </table>
-                    <Link to="/create">작성하기</Link>
+                <div className="item h-36 grid grid-cols-4 gap-2">
+                    {/* item */}
+                    {data.map((item,index)=>(
+                        <div key={index} className="bg-zinc-200">{item.title}</div>
+                    ))}
                 </div>
+                <Link to="/create">추가하기</Link>
             </main>
         </div>
     )
