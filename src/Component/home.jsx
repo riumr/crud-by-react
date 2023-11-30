@@ -32,7 +32,7 @@ const Home = () =>{
                 <h1 className="text-3xl">Home</h1>
                 <input type="search" className="search-box rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
             </header>
-            <div className="home-banner h-80 bg-zinc-400">
+            <div className="home-banner h-96 bg-zinc-400">
                 {/* carousel */}
             </div>
             <main>
@@ -52,7 +52,10 @@ const Home = () =>{
                 <div className="item h-36 grid grid-cols-4 gap-2">
                     {/* item */}
                     {data.map((item,index)=>(
-                        <div key={index} className="bg-zinc-200">{item.title}</div>
+                        <div key={index} className="bg-zinc-200">
+                            <div>{item.timestamp}</div>
+                            <div><Link to={`/detail/${item.timestamp}`}>{item.title}</Link></div>
+                        </div>
                     ))}
                 </div>
                 <Link to="/create">추가하기</Link>
