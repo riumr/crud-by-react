@@ -60,6 +60,7 @@ const Home = () =>{
                 </div>
                 <Link to="/create">추가하기</Link>
             </main>
+            <footer></footer>
         </div>
     )
 }
