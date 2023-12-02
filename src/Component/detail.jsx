@@ -32,6 +32,7 @@ const Detail = () => {
     },[])
     console.log(params)
 
+    // item photo
     const itemPhoto = ({img_path}) => {
         <div className="">
             <img src={img_path} alt="item_img" />
@@ -39,20 +40,23 @@ const Detail = () => {
     }
 
     return(
-        <div className="container-div">
+        <div className="wrap">
             <header className="my-3">
                 <h1 className="text-3xl">Home</h1>
                 <input type="search" className="search-box rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
             </header>
             <main>
-                <div className="item-photo-buy">
-                    <div className="item-photo">
+                <div className="item-photo-buy h-96 grid grid-cols-2 bg-zinc-300">
+                    <div className="item-photo bg-zinc-100 grid grid-rows-4 gap-2">
                         {/* item photo */}
-                        {itemPhoto()}
-                        {itemPhoto()}
-                        {itemPhoto()}
-                        {itemPhoto()}
-                        {itemPhoto()}
+                        <div className="item-main-photo row-span-3 bg-zinc-200"></div>
+                        <div className="item-sub-photo row-span-1 grid grid-cols-5 gap-2">
+                            <div className="bg-zinc-300"></div>
+                            <div className="bg-zinc-300"></div>
+                            <div className="bg-zinc-300"></div>
+                            <div className="bg-zinc-300"></div>
+                            <div className="bg-zinc-300"></div>
+                        </div>
                     </div>
                     <div className="item-summary">
                         {/* item summary */}
@@ -88,7 +92,7 @@ const Detail = () => {
                 <div className="item-description-review">
                     <div className="item-description">
                         {/* item description image */}
-                        <img src="" alt="item_image" />
+                        {/* <img src="" alt="item_image" /> */}
                     </div>
                     <div className="item-rating">
                         {/* ratings */}
