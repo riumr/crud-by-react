@@ -50,7 +50,7 @@ const Update = () => {
     };
   
     return (
-      <div className="container-div">
+      <div className="wrap">
         <div className="top-div">
           <form onSubmit={handleSubmit}>
             <label>title</label>

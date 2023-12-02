@@ -1,7 +1,11 @@
-.container-div {
+.wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+main {
+    width: 80rem;
 }
 
 .top-div{
