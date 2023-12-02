@@ -7,34 +7,8 @@ header {
     width: 100%;
 }
 
-main {
-    width: 40rem;
-}
-
-.home-category-login {
-    width: 100%;
-}
-
-.home-recommend {
-    width: 100%;
-}
-
 .item {
     height: max-content;
     text-align: center;
     border-radius: 5px;
-}
-
-.home-table {
-    width: 100%;
-    height: 8rem;
-}
-
-th {
-    padding: 5px 0px 5px 0px;
-    background-color: rgb(160, 160, 160);
-}
-
-td {
-    border: 1px solid black;
 }

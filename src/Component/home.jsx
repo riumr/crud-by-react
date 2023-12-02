@@ -27,7 +27,7 @@ const Home = () =>{
     },[])
     console.log(data)
     return (
-        <div className="container-div">
+        <div className="wrap">
             <header className="my-3">
                 <h1 className="text-3xl">Home</h1>
                 <input type="search" className="search-box rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
@@ -36,7 +36,7 @@ const Home = () =>{
                 {/* carousel */}
             </div>
             <main>
-                <div className="home-category-login h-36 grid grid-cols-6 gap-3 my-2">
+                <div className="home-category-login h-[15rem] grid grid-cols-6 gap-3 my-2">
                     <div className="home-category col-span-4 bg-zinc-300">
                         {/* category */}
                     </div>
@@ -44,7 +44,7 @@ const Home = () =>{
                         {/* login */}
                     </div>
                 </div>
-                <div className="home-recommend h-44 flex gap-2 my-2">
+                <div className="home-recommend h-[30rem] flex gap-2 my-2">
                     {/* recommend item */}
                     <div className="flex-auto bg-zinc-300"></div>
                     <div className="flex-auto bg-zinc-300"></div>
