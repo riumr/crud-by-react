@@ -4,6 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import "../Styles/common.css"
+import "../Styles/detail.css"
 import configuration from "../firebaseConfig";
 import Delete from "./delete";
 
@@ -34,7 +35,7 @@ const Detail = () => {
 
     // item photo
     const itemPhoto = ({img_path}) => {
-        <div className="">
+        <div className="w-[5rem] h-[5rem] bg-zinc-300">
             <img src={img_path} alt="item_img" />
         </div>
     }
@@ -46,19 +47,22 @@ const Detail = () => {
                 <input type="search" className="search-box rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
             </header>
             <main>
-                <div className="item-photo-buy h-96 grid grid-cols-2 bg-zinc-300">
-                    <div className="item-photo bg-zinc-100 grid grid-rows-4 gap-2">
+                <div className="item-photo-buy w-[80rem] h-[36rem] flex bg-zinc-300">
+                    <div className="item-photo bg-zinc-100 flex-col gap-2">
                         {/* item photo */}
-                        <div className="item-main-photo row-span-3 bg-zinc-200"></div>
-                        <div className="item-sub-photo row-span-1 grid grid-cols-5 gap-2">
-                            <div className="bg-zinc-300"></div>
-                            <div className="bg-zinc-300"></div>
-                            <div className="bg-zinc-300"></div>
-                            <div className="bg-zinc-300"></div>
-                            <div className="bg-zinc-300"></div>
+                        <div className="item-main-photo w-[27rem] h-[27rem] bg-zinc-200">
+                            {/* main photo */}
+                        </div>
+                        <div className="item-sub-photo flex gap-2 mt-3">
+                            <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
+                            <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
+                            <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
+                            <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
+                            <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
                         </div>
                     </div>
-                    <div className="item-summary">
+                    <div className="w-[27rem] h-[36rem]"></div>
+                    <div className="item-summary w-[27rem] h-[36rem] bg-zinc-200">
                         {/* item summary */}
                         <div className="item-price">
                             {/* price */}
