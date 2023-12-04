@@ -41,19 +41,19 @@ const Detail = () => {
     }
 
     return(
-        <div className="wrap">
+        <div id="wrap">
             <header className="my-3">
                 <h1 className="text-3xl">Home</h1>
-                <input type="search" className="search-box rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
+                <input type="search" id="search-box" className="rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
             </header>
             <main>
-                <div className="item-photo-buy w-[80rem] h-[36rem] flex bg-zinc-300">
-                    <div className="item-photo bg-zinc-100 flex-col gap-2">
+                <div id="item-photo-buy" className="w-[80rem] h-[36rem] flex bg-zinc-300">
+                    <div id="item-photo" className="bg-zinc-100 flex-col gap-2">
                         {/* item photo */}
-                        <div className="item-main-photo w-[27rem] h-[27rem] bg-zinc-200">
+                        <div id="item-main-photo" className="w-[27rem] h-[27rem] bg-zinc-200">
                             {/* main photo */}
                         </div>
-                        <div className="item-sub-photo flex gap-2 mt-3">
+                        <div id="item-sub-photo" className="flex gap-2 mt-3">
                             <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
                             <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
                             <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
@@ -61,49 +61,55 @@ const Detail = () => {
                             <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
                         </div>
                     </div>
-                    <div className="w-[27rem] h-[36rem]"></div>
-                    <div className="item-summary w-[27rem] h-[36rem] bg-zinc-200">
-                        {/* item summary */}
-                        <div className="item-price">
-                            {/* price */}
-                        </div>
-                        <div className="item-name">
-                            {/* item name */}
-                        </div>
-                        <div className="item-delivery">
-                            {/* delivery method */}
-                        </div>
-                        <div className="item-amount">
-                            {/* amount of item */}
-                            <div>
-                                <button className="">-</button>
-                                <input type="text" />
-                                <button className="">+</button>
+                    <div id="item-summary" className="w-[27rem] h-full flex-col justify-between">
+                        <div id="item-price-name" className="flex-col gap-2">
+                            <div id="item-price" className="w-full h-[9rem] border border-black">
+                                {/* price */}
+                            </div>
+                            <div id="item-name" className="w-full h-[7rem] border border-black">
+                                {/* item name */}
                             </div>
                         </div>
-                        <div className="item-buy-save">
-                            <button className="">
+                        <div id="item-amount" className="w-full h-[9rem] flex justify-center items-center border border-black">
+                            {/* amount of item */}
+                            <div className="w-[9rem] h-[2rem] flex gap-2">
+                                <button id="">-</button>
+                                <input type="text" className="w-[7rem] h-[2rem] border border-black rounded-[5rem]"/>
+                                <button id="">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="item-buy-info" className="w-[27rem] h-[36rem] bg-zinc-200">
+                        {/* item summary */}
+                        <div id="item-delivery">
+                            {/* delivery method */}
+                        </div>
+                        <div id="item-message">
+                            {/* message */}
+                        </div>
+                        <div id="item-buy-save">
+                            <button id="">
                                 {/* buy button */}
                                 buy
                             </button>
-                            <button className="">
+                            <button id="">
                                 {/* bucket save button */}
                                 save
                             </button>
                         </div>
                     </div>
                 </div>
-                <div className="item-description-review">
-                    <div className="item-description">
+                <div id="item-description-review">
+                    <div id="item-description">
                         {/* item description image */}
                         {/* <img src="" alt="item_image" /> */}
                     </div>
-                    <div className="item-rating">
+                    <div id="item-rating">
                         {/* ratings */}
                         <div></div>
                         <div></div>
                     </div>
-                    <div className="item-review">
+                    <div id="item-review">
                         {/* reviews */}
                         <div></div>
                         <div></div>
