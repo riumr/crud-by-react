@@ -3,11 +3,11 @@ header {
     width: max-content;
 }
 
-.home-banner {
+#home-banner {
     width: 100%;
 }
 
-.item {
+#item {
     height: max-content;
     text-align: center;
     border-radius: 5px;
