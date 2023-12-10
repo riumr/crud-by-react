@@ -34,9 +34,9 @@ const Detail = () => {
     console.log(params)
 
     // item photo
-    const itemPhoto = ({img_path}) => {
+    const itemPhoto = ({props}) => {
         <div className="w-[5rem] h-[5rem] bg-zinc-300">
-            <img src={img_path} alt="item_img" />
+            <img src={props.imgPath} alt="item_img" />
         </div>
     }
 
@@ -47,8 +47,8 @@ const Detail = () => {
                 <input type="search" id="search-box" className="rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
             </header>
             <main>
-                <div id="item-photo-buy" className="w-[80rem] h-[36rem] flex bg-zinc-300">
-                    <div id="item-photo" className="bg-zinc-100 flex-col gap-2">
+                <div id="item-photo-buy" className="w-[80rem] h-[33rem] flex bg-zinc-300">
+                    <div id="item-photo" className="bg-zinc-100 flex-col">
                         {/* item photo */}
                         <div id="item-main-photo" className="w-[27rem] h-[27rem] bg-zinc-200">
                             {/* main photo */}
@@ -61,38 +61,40 @@ const Detail = () => {
                             <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
                         </div>
                     </div>
-                    <div id="item-summary" className="w-[27rem] h-full flex-col justify-between">
-                        <div id="item-price-name" className="flex-col gap-2">
-                            <div id="item-price" className="w-full h-[9rem] border border-black">
+                    <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
+                        <div id="item-price-name" className="flex flex-col gap-2">
+                            <div id="item-price" className="w-full h-[7rem] border border-black">
                                 {/* price */}
                             </div>
-                            <div id="item-name" className="w-full h-[7rem] border border-black">
+                            <div id="item-name" className="w-full h-[5rem] border border-black">
                                 {/* item name */}
                             </div>
                         </div>
-                        <div id="item-amount" className="w-full h-[9rem] flex justify-center items-center border border-black">
+                        <div id="item-amount" className="w-full h-[7rem] flex justify-center items-center border border-black">
                             {/* amount of item */}
                             <div className="w-[9rem] h-[2rem] flex gap-2">
                                 <button id="">-</button>
-                                <input type="text" className="w-[7rem] h-[2rem] border border-black rounded-[5rem]"/>
+                                <input type="text" className="w-[7rem] h-[2rem] border border-black rounded-[5rem] p-4"/>
                                 <button id="">+</button>
                             </div>
                         </div>
                     </div>
-                    <div id="item-buy-info" className="w-[27rem] h-[36rem] bg-zinc-200">
+                    <div id="item-buy-info" className="w-[27rem] bg-zinc-200 px-4 flex flex-col justify-between">
                         {/* item summary */}
-                        <div id="item-delivery">
-                            {/* delivery method */}
-                        </div>
-                        <div id="item-message">
-                            {/* message */}
+                        <div id="item-delivery-message">
+                            <div id="item-delivery" className="h-[8rem] border border-black">
+                                {/* delivery method */}
+                            </div>
+                            <div id="item-message" className="h-[8rem] border border-black">
+                                {/* message */}
+                            </div>
                         </div>
                         <div id="item-buy-save">
-                            <button id="">
+                            <button id="buy-button" className="w-full h-[4rem] border border-black rounded-[1rem]">
                                 {/* buy button */}
                                 buy
                             </button>
-                            <button id="">
+                            <button id="save-button" className="w-full h-[4rem] border border-black rounded-[1rem]">
                                 {/* bucket save button */}
                                 save
                             </button>
