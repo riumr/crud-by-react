@@ -33,12 +33,12 @@ const Detail = () => {
     },[])
     console.log(params)
 
-    // item photo
-    const itemPhoto = ({props}) => {
-        <div className="w-[5rem] h-[5rem] bg-zinc-300">
-            <img src={props.imgPath} alt="item_img" />
-        </div>
-    }
+// item photo
+const itemPhoto = ({props}) => {
+    <div className="w-[5rem] h-[5rem] bg-zinc-300">
+        {/* <img src={props.imgPath} alt="item_img" /> */}
+    </div>
+}
 
     return(
         <div id="wrap">
@@ -79,7 +79,7 @@ const Detail = () => {
                             </div>
                         </div>
                     </div>
-                    <div id="item-buy-info" className="w-[27rem] bg-zinc-200 px-4 flex flex-col justify-between">
+                    <div id="item-buy-info" className="w-[25rem] bg-zinc-200 px-4 flex flex-col justify-between">
                         {/* item summary */}
                         <div id="item-delivery-message">
                             <div id="item-delivery" className="h-[8rem] border border-black">
@@ -101,20 +101,23 @@ const Detail = () => {
                         </div>
                     </div>
                 </div>
-                <div id="item-description-review">
+                {/* sticy 스타일 적용 중 요소 위치 문제 발생 */}
+                <div id="item-description-review" className="w-[53.5rem] h-full border border-black">
                     <div id="item-description">
+                        <button id="item-info-button" className="w-[17rem] h-9 border border-black">상품정보</button>
+                        <button id="review-button" className="w-[17rem] h-9 border border-black">리뷰</button>
                         {/* item description image */}
-                        {/* <img src="" alt="item_image" /> */}
+                        <img src="" alt="item_image" className="w-full h-[54rem] bg-zinc-300"/>
                     </div>
-                    <div id="item-rating">
+                    <div id="item-rating" className="flex justify-around p-9">
                         {/* ratings */}
-                        <div></div>
-                        <div></div>
+                        <div id="item-average_rating" className="w-[15rem] h-[10rem] bg-zinc-300"></div>
+                        <div id="item-rating-set" className="w-[25rem] h-[10rem] bg-zinc-300"></div>
                     </div>
                     <div id="item-review">
                         {/* reviews */}
-                        <div></div>
-                        <div></div>
+                        <div id="item-review-title" className="w-full h-[3rem] bg-zinc-300">리뷰제목</div>
+                        <div id="item-review-content" className="w-full h-[12rem] bg-zinc-200"></div>
                     </div>
                 </div>
             </main>
