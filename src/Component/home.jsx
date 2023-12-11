@@ -30,29 +30,28 @@ const Home = () =>{
         <div id="wrap">
             <header className="my-3">
                 <h1 className="text-3xl">Home</h1>
-                <input type="search" id="search-box" className="rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
+                <input type="search" id="search-box" className="w-[25rem] h-10 rounded-[5rem] ms-3 p-3"/>
             </header>
-            <div id="home-banner" className="h-96 bg-zinc-400">
+            <div id="home-banner" className="w-full h-[40rem] bg-zinc-400">
                 {/* carousel */}
             </div>
             <main>
-                <div id="home-category-login" className="h-[15rem] grid grid-cols-6 gap-3 my-2">
-                    <div id="home-category" className="col-span-4 bg-zinc-300">
-                        {/* category */}
-                    </div>
-                    <div id="home-login" className="col-span-2 bg-zinc-300">
-                        {/* login */}
-                    </div>
-                </div>
-                <div id="home-recommend" className="h-[30rem] flex gap-2 my-2">
+                <div id="home-recommend" className="w-[50rem] h-[20rem] bg-zinc-200">
                     {/* recommend item */}
-                    <div className="flex-auto bg-zinc-300"></div>
-                    <div className="flex-auto bg-zinc-300"></div>
+                    {/* carousel */}
+                    <div className="w-full h-[10rem] bg-zinc-300">
+                        <img src="" alt="recommend-item-img" className="bg-zinc-300"/>
+                        <button></button>
+                        <button></button>
+                    </div>
                 </div>
-                <div id="item" className="h-36 grid grid-cols-4 gap-2">
+                <div id="home-login" className="bg-zinc-300">
+                    {/* login */}
+                </div>
+                <div id="item" className="grid grid-cols-4">
                     {/* item */}
                     {data.map((item,index)=>(
-                        <div key={index} className="bg-zinc-200">
+                        <div key={index} className="w-[10rem] h-[10rem] bg-zinc-200">
                             <div>{item.timestamp}</div>
                             <div><Link to={`/detail/${item.timestamp}`}>{item.title}</Link></div>
                         </div>
