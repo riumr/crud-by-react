@@ -36,13 +36,15 @@ const Home = () =>{
                 {/* carousel */}
             </div>
             <main>
-                <div id="home-recommend" className="w-[50rem] h-[20rem] bg-zinc-200">
+                <div id="home-recommend" className="w-[50rem] h-[40rem] border border-black">
                     {/* recommend item */}
                     {/* carousel */}
-                    <div className="w-full h-[10rem] bg-zinc-300">
-                        <img src="" alt="recommend-item-img" className="bg-zinc-300"/>
-                        <button></button>
-                        <button></button>
+                    <div className="w-full h-[30rem] flex flex-col border border-black">
+                        <img src="" alt="recommend-item-img" className="w-full h-[23rem] bg-zinc-300"/>
+                        <div className="self-center">
+                            <button className="w-[15rem] h-[3rem] border border-black"></button>
+                            <button className="w-[15rem] h-[3rem] border border-black"></button>
+                        </div>
                     </div>
                 </div>
                 <div id="home-login" className="bg-zinc-300">
