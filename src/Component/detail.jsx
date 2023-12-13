@@ -33,72 +33,107 @@ const Detail = () => {
     },[])
     console.log(params)
 
-// item photo
-const itemPhoto = ({props}) => {
-    <div className="w-[5rem] h-[5rem] bg-zinc-300">
-        {/* <img src={props.imgPath} alt="item_img" /> */}
-    </div>
+const ItemSubPhoto = ({props}) => {
+    return(
+        <div className="w-[5rem] h-[5rem] bg-zinc-300">
+            {/* <img src={props.imgPath} alt="item_img" /> */}
+        </div>
+    )
 }
 
-    return(
-        <div id="wrap">
-            <header className="my-3">
+const Header = () => {
+    return (
+        <header className="my-3">
                 <h1 className="text-3xl">Home</h1>
                 <input type="search" id="search-box" className="rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
-            </header>
+        </header>
+    )
+}
+
+const ItemPhoto = () => {
+    return (
+        <div id="item-photo" className="bg-zinc-100 flex-col">
+            {/* item photo */}
+            <div id="item-main-photo" className="w-[27rem] h-[27rem] bg-zinc-200">
+                {/* main photo */}
+            </div>
+            <div id="item-sub-photo" className="flex gap-2 mt-3">
+                <ItemSubPhoto />
+                <ItemSubPhoto />
+                <ItemSubPhoto />
+                <ItemSubPhoto />
+                <ItemSubPhoto />
+            </div>
+        </div>
+    )
+}
+
+const ItemPriceName = () => {
+    return (
+        <div id="item-price-name" className="flex flex-col gap-2">
+            <div id="item-price" className="w-full h-[7rem] border border-black">
+                {/* price */}
+            </div>
+            <div id="item-name" className="w-full h-[5rem] border border-black">
+                {/* item name */}
+            </div>
+        </div>
+    )
+}
+
+const ItemAmount = () => {
+    return (
+        <div id="item-amount" className="w-full h-[7rem] flex justify-center items-center border border-black">
+            {/* amount of item */}
+            <div className="w-[9rem] h-[2rem] flex gap-2">
+                <button id="">-</button>
+                <input type="text" className="w-[7rem] h-[2rem] border border-black rounded-[5rem] p-4"/>
+                <button id="">+</button>
+            </div>
+        </div>
+    )
+}
+
+const ItemDeliveryMessage = () => {
+    return (
+        <div id="item-delivery-message">
+            <div id="item-delivery" className="h-[8rem] border border-black">
+                {/* delivery method */}
+            </div>
+            <div id="item-message" className="h-[8rem] border border-black">
+                {/* message */}
+            </div>
+        </div>
+    )
+}
+
+const ItemBuySave = () => {
+    return (
+        <div id="item-buy-save">
+            <button id="buy-button" className="w-full h-[4rem] border border-black rounded-[1rem]">
+                {/* buy button */}
+                buy
+            </button>
+            <button id="save-button" className="w-full h-[4rem] border border-black rounded-[1rem]">
+                {/* bucket save button */}
+                save
+            </button>
+        </div>
+    )
+}
+    return(
+        <div id="wrap">
+            <Header />
             <main>
                 <div id="item-photo-buy" className="w-[80rem] h-[33rem] flex bg-zinc-300">
-                    <div id="item-photo" className="bg-zinc-100 flex-col">
-                        {/* item photo */}
-                        <div id="item-main-photo" className="w-[27rem] h-[27rem] bg-zinc-200">
-                            {/* main photo */}
-                        </div>
-                        <div id="item-sub-photo" className="flex gap-2 mt-3">
-                            <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
-                            <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
-                            <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
-                            <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
-                            <div className="w-[5rem] h-[5rem] bg-zinc-300"></div>
-                        </div>
-                    </div>
+                    <ItemPhoto />
                     <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
-                        <div id="item-price-name" className="flex flex-col gap-2">
-                            <div id="item-price" className="w-full h-[7rem] border border-black">
-                                {/* price */}
-                            </div>
-                            <div id="item-name" className="w-full h-[5rem] border border-black">
-                                {/* item name */}
-                            </div>
-                        </div>
-                        <div id="item-amount" className="w-full h-[7rem] flex justify-center items-center border border-black">
-                            {/* amount of item */}
-                            <div className="w-[9rem] h-[2rem] flex gap-2">
-                                <button id="">-</button>
-                                <input type="text" className="w-[7rem] h-[2rem] border border-black rounded-[5rem] p-4"/>
-                                <button id="">+</button>
-                            </div>
-                        </div>
+                        <ItemPriceName />
+                        <ItemAmount />
                     </div>
                     <div id="item-buy-info" className="w-[25rem] bg-zinc-200 px-4 flex flex-col justify-between">
-                        {/* item summary */}
-                        <div id="item-delivery-message">
-                            <div id="item-delivery" className="h-[8rem] border border-black">
-                                {/* delivery method */}
-                            </div>
-                            <div id="item-message" className="h-[8rem] border border-black">
-                                {/* message */}
-                            </div>
-                        </div>
-                        <div id="item-buy-save">
-                            <button id="buy-button" className="w-full h-[4rem] border border-black rounded-[1rem]">
-                                {/* buy button */}
-                                buy
-                            </button>
-                            <button id="save-button" className="w-full h-[4rem] border border-black rounded-[1rem]">
-                                {/* bucket save button */}
-                                save
-                            </button>
-                        </div>
+                        <ItemDeliveryMessage />
+                        <ItemBuySave />
                     </div>
                 </div>
                 {/* sticy 스타일 적용 중 요소 위치 문제 발생 */}
