@@ -1,8 +1,3 @@
-header {
-    display: flex;
-    width: max-content;
-}
-
 #item {
     height: max-content;
     text-align: center;
