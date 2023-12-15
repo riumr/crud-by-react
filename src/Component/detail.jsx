@@ -19,7 +19,6 @@ const Detail = () => {
         const fetchDoc = async() =>{
             const currentUrl = window.location.href
             const params = currentUrl.split("/")[currentUrl.split('/').length-1]
-            console.log(params)
             const q = query(collection(db, "indexTable"),where("timestamp","==",params));
             const querySnapshot = await getDocs(q);
             const docs = [];
@@ -31,12 +30,30 @@ const Detail = () => {
         }
         fetchDoc()
     },[])
-    console.log(params)
-
-const ItemSubPhoto = ({props}) => {
     return(
-        <div className="w-[5rem] h-[5rem] bg-zinc-300">
-            {/* <img src={props.imgPath} alt="item_img" /> */}
+        <div id="wrap">
+            <Header />
+            <main>
+                <div id="item-photo-buy" className="w-[80rem] h-[33rem] flex bg-zinc-300">
+                    <ItemPhoto />
+                    <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
+                        <ItemPriceName />
+                        <ItemAmount />
+                    </div>
+                    <div id="item-buy-info" className="w-[25rem] bg-zinc-200 px-4 flex flex-col justify-between">
+                        <ItemDeliveryMessage />
+                        <ItemBuySave />
+                    </div>
+                </div>
+                {/* sticky 스타일 적용 중 요소 위치 문제 발생 */}
+                <div id="item-description-review" className="w-[53.5rem] h-full border border-black">
+                    <ItemDescription />
+                    <ItemRating />
+                    <ItemReview />
+                </div>
+            </main>
+            <TopDiv data={data} />
+            <footer></footer>
         </div>
     )
 }
@@ -49,6 +66,15 @@ const Header = () => {
         </header>
     )
 }
+
+const ItemSubPhoto = ({props}) => {
+    return(
+        <div className="w-[5rem] h-[5rem] bg-zinc-300">
+            {/* <img src={props.imgPath} alt="item_img" /> */}
+        </div>
+    )
+}
+
 
 const ItemPhoto = () => {
     return (
@@ -121,59 +147,56 @@ const ItemBuySave = () => {
         </div>
     )
 }
-    return(
-        <div id="wrap">
-            <Header />
-            <main>
-                <div id="item-photo-buy" className="w-[80rem] h-[33rem] flex bg-zinc-300">
-                    <ItemPhoto />
-                    <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
-                        <ItemPriceName />
-                        <ItemAmount />
+
+const ItemDescription = () => {
+    return (
+        <div id="item-description">
+            <button id="item-info-button" className="w-[17rem] h-9 border border-black">상품정보</button>
+            <button id="review-button" className="w-[17rem] h-9 border border-black">리뷰</button>
+            {/* item description image */}
+            <img src="" alt="item_image" className="w-full h-[54rem] bg-zinc-300"/>
+        </div>
+    )
+}
+
+const ItemRating = () => {
+    return (
+        <div id="item-rating" className="flex justify-around p-9">
+            {/* ratings */}
+            <div id="item-average_rating" className="w-[15rem] h-[10rem] bg-zinc-300"></div>
+            <div id="item-rating-set" className="w-[25rem] h-[10rem] bg-zinc-300"></div>
+        </div>
+    )
+}
+
+const ItemReview = () => {
+    return (
+        <div id="item-review">
+            {/* reviews */}
+            <div id="item-review-title" className="w-full h-[3rem] bg-zinc-300">리뷰제목</div>
+            <div id="item-review-content" className="w-full h-[12rem] bg-zinc-200"></div>
+        </div>
+    )
+}
+
+const TopDiv = ({data}) => {
+    return (
+        <div className="top-div">
+            {data.map((detailDoc,index)=>(
+                <div key={index}>
+                    <div>
+                        <h3>Title</h3>
+                        <p>{detailDoc.title}</p>
                     </div>
-                    <div id="item-buy-info" className="w-[25rem] bg-zinc-200 px-4 flex flex-col justify-between">
-                        <ItemDeliveryMessage />
-                        <ItemBuySave />
+                    <div>
+                        <h3>Content</h3>
+                        <p>{detailDoc.content}</p>
                     </div>
+                    <button onClick={Delete}>삭제</button>
                 </div>
-                {/* sticy 스타일 적용 중 요소 위치 문제 발생 */}
-                <div id="item-description-review" className="w-[53.5rem] h-full border border-black">
-                    <div id="item-description">
-                        <button id="item-info-button" className="w-[17rem] h-9 border border-black">상품정보</button>
-                        <button id="review-button" className="w-[17rem] h-9 border border-black">리뷰</button>
-                        {/* item description image */}
-                        <img src="" alt="item_image" className="w-full h-[54rem] bg-zinc-300"/>
-                    </div>
-                    <div id="item-rating" className="flex justify-around p-9">
-                        {/* ratings */}
-                        <div id="item-average_rating" className="w-[15rem] h-[10rem] bg-zinc-300"></div>
-                        <div id="item-rating-set" className="w-[25rem] h-[10rem] bg-zinc-300"></div>
-                    </div>
-                    <div id="item-review">
-                        {/* reviews */}
-                        <div id="item-review-title" className="w-full h-[3rem] bg-zinc-300">리뷰제목</div>
-                        <div id="item-review-content" className="w-full h-[12rem] bg-zinc-200"></div>
-                    </div>
-                </div>
-            </main>
-            <div className="top-div">
-                {data.map((detailDoc,index)=>(
-                    <div key={index}>
-                        <div>
-                            <h3>Title</h3>
-                            <p>{detailDoc.title}</p>
-                        </div>
-                        <div>
-                            <h3>Content</h3>
-                            <p>{detailDoc.content}</p>
-                        </div>
-                        <button onClick={Delete}>삭제</button>
-                    </div>
-                ))}
-                <Link to="/">목록</Link>
-                <Link to={`/update/${params}`}>수정</Link>
-            </div>
-            <footer></footer>
+            ))}
+            <Link to="/">목록</Link>
+            <Link to={`/update/${params}`}>수정</Link>
         </div>
     )
 }
