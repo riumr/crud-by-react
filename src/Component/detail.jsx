@@ -58,6 +58,34 @@ const Detail = () => {
     )
 }
 
+const DetailTemplate = () => {
+    return (
+        <div id="wrap">
+            <Header />
+            <main>
+                <div id="item-photo-buy" className="w-[80rem] h-[33rem] flex bg-zinc-300">
+                    <ItemPhoto />
+                    <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
+                        <ItemPriceName />
+                        <ItemAmount />
+                    </div>
+                    <div id="item-buy-info" className="w-[25rem] bg-zinc-200 px-4 flex flex-col justify-between">
+                        <ItemDeliveryMessage />
+                        <ItemBuySave />
+                    </div>
+                </div>
+                {/* sticky 스타일 적용 중 요소 위치 문제 발생 */}
+                <div id="item-description-review" className="w-[53.5rem] h-full border border-black">
+                    <ItemDescription />
+                    <ItemRating />
+                    <ItemReview />
+                </div>
+            </main>
+            <footer></footer>
+        </div>
+    )
+}
+
 const Header = () => {
     return (
         <header className="my-3">
@@ -201,4 +229,4 @@ const TopDiv = ({data}) => {
     )
 }
 
-export default Detail;
+export {Detail, DetailTemplate};

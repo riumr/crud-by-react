@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './Component/home';
-import Detail from './Component/detail';
+import {Detail} from './Component/detail';
 import Update from './Component/update';
-import Create from './Component/create';
+import {Create} from './Component/create';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([

@@ -4,6 +4,7 @@ import { setDoc,doc } from "firebase/firestore";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import configuration from "../firebaseConfig";
+import { DetailTemplate } from "./detail";
 
 const app = initializeApp(configuration);
 const db = getFirestore(app);
@@ -15,6 +16,15 @@ const day = currentDate.getDate();
 const hours = currentDate.getHours();
 const minutes = currentDate.getMinutes();
 const seconds = currentDate.getSeconds();
+
+
+
+const Create = () => {
+    return (
+        <DetailTemplate/>
+    )
+}
+
 
 const CreateForm = () =>{
     // eslint-disable-next-line
@@ -49,4 +59,5 @@ const sendToDoc = async(data) =>{
     console.error("Error adding document: ", e);
     }
 }
-export default CreateForm;
+
+export {CreateForm,Create};
