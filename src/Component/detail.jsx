@@ -89,7 +89,9 @@ const DetailTemplate = () => {
 const Header = () => {
     return (
         <header className="my-3">
-                <h1 className="text-3xl">Home</h1>
+                <h1 className="text-3xl">
+                <Link to='/'>Home</Link>
+                </h1>
                 <input type="search" id="search-box" className="rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
         </header>
     )
