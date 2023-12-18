@@ -31,57 +31,36 @@ const Detail = () => {
         fetchDoc()
     },[])
     return(
-        <div id="wrap">
-            <Header />
-            <main>
-                <div id="item-photo-buy" className="w-[80rem] h-[33rem] flex bg-zinc-300">
-                    <ItemPhoto />
-                    <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
-                        <ItemPriceName />
-                        <ItemAmount />
-                    </div>
-                    <div id="item-buy-info" className="w-[25rem] bg-zinc-200 px-4 flex flex-col justify-between">
-                        <ItemDeliveryMessage />
-                        <ItemBuySave />
-                    </div>
-                </div>
-                {/* sticky 스타일 적용 중 요소 위치 문제 발생 */}
-                <div id="item-description-review" className="w-[53.5rem] h-full border border-black">
-                    <ItemDescription />
-                    <ItemRating />
-                    <ItemReview />
-                </div>
-            </main>
-            <TopDiv data={data} />
-            <footer></footer>
-        </div>
+        <DetailTemplate />
     )
 }
 
 const DetailTemplate = () => {
     return (
         <div id="wrap">
-            <Header />
-            <main>
-                <div id="item-photo-buy" className="w-[80rem] h-[33rem] flex bg-zinc-300">
-                    <ItemPhoto />
-                    <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
-                        <ItemPriceName />
-                        <ItemAmount />
+            <div id="container">
+                <Header />
+                <main>
+                    <div id="item-photo-buy" className="w-[80rem] h-[33rem] flex bg-zinc-300">
+                        <ItemPhoto />
+                        <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
+                            <ItemPriceName />
+                            <ItemAmount />
+                        </div>
+                        <div id="item-buy-info" className="w-[25rem] bg-zinc-200 px-4 flex flex-col justify-between">
+                            <ItemDeliveryMessage />
+                            <ItemBuySave />
+                        </div>
                     </div>
-                    <div id="item-buy-info" className="w-[25rem] bg-zinc-200 px-4 flex flex-col justify-between">
-                        <ItemDeliveryMessage />
-                        <ItemBuySave />
+                    {/* sticky 스타일 적용 중 요소 위치 문제 발생 */}
+                    <div id="item-description-review" className="w-[53.5rem] h-full border border-black">
+                        <ItemDescription />
+                        <ItemRating />
+                        <ItemReview />
                     </div>
-                </div>
-                {/* sticky 스타일 적용 중 요소 위치 문제 발생 */}
-                <div id="item-description-review" className="w-[53.5rem] h-full border border-black">
-                    <ItemDescription />
-                    <ItemRating />
-                    <ItemReview />
-                </div>
-            </main>
-            <footer></footer>
+                </main>
+                <footer></footer>
+            </div>
         </div>
     )
 }
@@ -90,21 +69,12 @@ const Header = () => {
     return (
         <header className="my-3">
                 <h1 className="text-3xl">
-                <Link to='/'>Home</Link>
+                    <Link to='/'>Home</Link>
                 </h1>
                 <input type="search" id="search-box" className="rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
         </header>
     )
 }
-
-const ItemSubPhoto = ({props}) => {
-    return(
-        <div className="w-[5rem] h-[5rem] bg-zinc-300">
-            {/* <img src={props.imgPath} alt="item_img" /> */}
-        </div>
-    )
-}
-
 
 const ItemPhoto = () => {
     return (
@@ -123,6 +93,16 @@ const ItemPhoto = () => {
         </div>
     )
 }
+
+const ItemSubPhoto = ({props}) => {
+    return(
+        <div className="w-[5rem] h-[5rem] bg-zinc-300">
+            {/* <img src={props.imgPath} alt="item_img" /> */}
+        </div>
+    )
+}
+
+
 
 const ItemPriceName = () => {
     return (
