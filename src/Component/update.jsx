@@ -4,6 +4,7 @@ import { getFirestore,getDoc,doc,setDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import "../Styles/common.css"
 import configuration from "../firebaseConfig";
+import { DetailTemplate } from "./detail";
 
 const app = initializeApp(configuration);
 const db = getFirestore(app);
@@ -51,6 +52,7 @@ const Update = () => {
   
     return (
       <div className="wrap">
+        <DetailTemplate />
         <div className="top-div">
           <form onSubmit={handleSubmit}>
             <label>title</label>
