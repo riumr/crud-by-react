@@ -1,19 +1,19 @@
 #wrap {
   width: 100%;
-}
-
-header {
-  width: 1280px;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
 }
 
-main {
-  width: 1280px;
-  margin: 0 auto;
-  display: flex;
+#container {
+  width:1280px
 }
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 
 .top-div{
     width: max-content;
