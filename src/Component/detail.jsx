@@ -94,24 +94,22 @@ const ItemPhoto = () => {
     )
 }
 
-const ItemSubPhoto = ({props}) => {
+const ItemSubPhoto = ({imgPath}) => {
     return(
         <div className="w-[5rem] h-[5rem] bg-zinc-300">
-            {/* <img src={props.imgPath} alt="item_img" /> */}
+            <img src={imgPath} alt="item_img" />
         </div>
     )
 }
 
-
-
-const ItemPriceName = () => {
+const ItemPriceName = ({price,name}) => {
     return (
         <div id="item-price-name" className="flex flex-col gap-2">
             <div id="item-price" className="w-full h-[7rem] border border-black">
-                {/* price */}
+                <p>{price}</p>
             </div>
             <div id="item-name" className="w-full h-[5rem] border border-black">
-                {/* item name */}
+                <p>{name}</p>
             </div>
         </div>
     )
@@ -211,4 +209,4 @@ const TopDiv = ({data}) => {
     )
 }
 
-export {Detail, DetailTemplate};
+export {Detail, DetailTemplate, ItemPriceName};
