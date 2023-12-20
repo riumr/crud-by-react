@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import "../Styles/common.css"
 import "../Styles/detail.css"
 import configuration from "../firebaseConfig";
@@ -39,10 +40,26 @@ const DetailTemplate = () => {
     return (
         <div id="wrap">
             <div id="container">
-                <Header />
+                <StyledHeader>
+                    <HeaderText>
+                        <Link to='/'>Home</Link>
+                    </HeaderText>
+                    <SearchBar />
+                </StyledHeader>
                 <main>
                     <div id="item-photo-buy" className="w-[80rem] h-[33rem] flex bg-zinc-300">
-                        <ItemPhoto />
+                    <Photo>
+                        <MainPhoto>
+                            <img src="" alt="main_img" />
+                        </MainPhoto>
+                        <SubPhotoGroup>
+                            <SubPhoto />
+                            <SubPhoto />
+                            <SubPhoto />
+                            <SubPhoto />
+                            <SubPhoto />
+                        </SubPhotoGroup>
+                    </Photo>
                         <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
                             <ItemPriceName />
                             <ItemAmount />
@@ -65,43 +82,51 @@ const DetailTemplate = () => {
     )
 }
 
-const Header = () => {
-    return (
-        <header className="my-3">
-                <h1 className="text-3xl">
-                    <Link to='/'>Home</Link>
-                </h1>
-                <input type="search" id="search-box" className="rounded-[5rem] ms-3 w-[25rem] h-10 p-3"/>
-        </header>
-    )
-}
+const StyledHeader = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin : 1rem 0 1rem 0;
+`
+const HeaderText = styled.h1`
+    font-size: 30px;
+    line-height: 36px;
+`
+const SearchBar = styled.input.attrs({type:'search'})`
+    width : 25rem;
+    height: 2.5rem;
+    border-color:rgb(0,0,0);
+    border-width: 1px;
+    border-radius: 1rem;
+    margin : 0 0 0 1rem;
+    padding: 12px;
+`
 
-const ItemPhoto = () => {
-    return (
-        <div id="item-photo" className="bg-zinc-100 flex-col">
-            {/* item photo */}
-            <div id="item-main-photo" className="w-[27rem] h-[27rem] bg-zinc-200">
-                {/* main photo */}
-            </div>
-            <div id="item-sub-photo" className="flex gap-2 mt-3">
-                <ItemSubPhoto />
-                <ItemSubPhoto />
-                <ItemSubPhoto />
-                <ItemSubPhoto />
-                <ItemSubPhoto />
-            </div>
-        </div>
-    )
-}
+const Photo = styled.div`
+    background-color: rgb(212 212 216);
+`
+const MainPhoto = styled.div`
+    width:27rem;
+    height:27rem;
+    background-color: rgb(228 228 231);
+`
+const SubPhotoGroup = styled.div`
+    display:flex;
+    column-gap: 8px;
+    margin-top: 12px;
+`
 
-const ItemSubPhoto = ({imgPath}) => {
+const SubPhoto = ({imgPath}) => {
     return(
-        <div className="w-[5rem] h-[5rem] bg-zinc-300">
-            <img src={imgPath} alt="item_img" />
-        </div>
+        <SubPhotoStyle src={imgPath} alt="item_img" className="w-[5rem] h-[5rem] bg-zinc-300"/>
     )
 }
 
+const SubPhotoStyle = styled.img`
+    width:5rem;
+    height:5rem;
+    background-color: rgb(212 212 216);
+`
 const ItemPriceName = ({price,name}) => {
     return (
         <div id="item-price-name" className="flex flex-col gap-2">
