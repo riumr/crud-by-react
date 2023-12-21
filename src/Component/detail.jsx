@@ -127,31 +127,71 @@ const SubPhotoStyle = styled.img`
     height:5rem;
     background-color: rgb(212 212 216);
 `
+
 const ItemPriceName = ({price,name}) => {
     return (
-        <div id="item-price-name" className="flex flex-col gap-2">
-            <div id="item-price" className="w-full h-[7rem] border border-black">
+        <PriceAndName>
+            <Price>
                 <p>{price}</p>
-            </div>
-            <div id="item-name" className="w-full h-[5rem] border border-black">
+            </Price>
+            <Name>
                 <p>{name}</p>
-            </div>
-        </div>
+            </Name>
+        </PriceAndName>
     )
 }
+
+const PriceAndName = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+`
+
+const Price = styled.div`
+    width:100%;
+    height:7rem;
+    border-color: rgb(0 0 0);
+`
+
+const Name = styled.div`
+    width:100%;
+    height:5rem;
+    border-color : rgb(0 0 0);
+
+`
 
 const ItemAmount = () => {
     return (
         <div id="item-amount" className="w-full h-[7rem] flex justify-center items-center border border-black">
             {/* amount of item */}
             <div className="w-[9rem] h-[2rem] flex gap-2">
-                <button id="">-</button>
-                <input type="text" className="w-[7rem] h-[2rem] border border-black rounded-[5rem] p-4"/>
-                <button id="">+</button>
+                <AmountButton>-</AmountButton>
+                <AmountField/>
+                <AmountButton>+</AmountButton>
             </div>
         </div>
     )
 }
+
+const Amount = styled.div`
+    width: 9rem;
+    height: 2rem;
+    display: flex;
+    gap: 8px;
+`
+
+const AmountField = styled.input.attrs('text')`
+    width:7rem;
+    height:2rem;
+    border-color: rgb(0 0 0);
+    border-radius: 5rem;
+    padding: 1rem;
+`
+
+const AmountButton = styled.button`
+`
+
 
 const ItemDeliveryMessage = () => {
     return (
