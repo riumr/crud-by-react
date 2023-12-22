@@ -60,12 +60,26 @@ const DetailTemplate = () => {
                             <SubPhoto />
                         </SubPhotoGroup>
                     </Photo>
-                        <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
-                            <ItemPriceName />
-                            <ItemAmount />
+                    <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
+                        <ItemPriceName />
+                        <AmoutSettingZone>
+                            {/* amount of item */}
+                            <AmountSetting>
+                                <AmountButton>-</AmountButton>
+                                <AmountField/>
+                                <AmountButton>+</AmountButton>
+                            </AmountSetting>
+                        </AmoutSettingZone>
+                    </div>
+                    <div id="item-buy-info" className="w-[25rem] bg-zinc-200 px-4 flex flex-col justify-between">
+                        <div id="item-delivery-message">
+                            <div id="item-delivery" className="h-[8rem] border border-black">
+                                {/* delivery method */}
+                            </div>
+                            <div id="item-message" className="h-[8rem] border border-black">
+                                {/* message */}
+                            </div>
                         </div>
-                        <div id="item-buy-info" className="w-[25rem] bg-zinc-200 px-4 flex flex-col justify-between">
-                            <ItemDeliveryMessage />
                             <ItemBuySave />
                         </div>
                     </div>
@@ -161,18 +175,21 @@ const Name = styled.div`
 
 `
 
-const ItemAmount = () => {
-    return (
-        <div id="item-amount" className="w-full h-[7rem] flex justify-center items-center border border-black">
-            {/* amount of item */}
-            <div className="w-[9rem] h-[2rem] flex gap-2">
-                <AmountButton>-</AmountButton>
-                <AmountField/>
-                <AmountButton>+</AmountButton>
-            </div>
-        </div>
-    )
-}
+const AmoutSettingZone = styled.div`
+    width: 100%;
+    height: 7rem;
+    diplay: flex;
+    justify-content: center;
+    aligh-items: center;
+    border-color: rgb(0 0 0);
+`
+
+const AmountSetting = styled.div`
+    widht:9rem;
+    height:2rem;
+    display: flex;
+    gap: 8px
+`
 
 const Amount = styled.div`
     width: 9rem;
@@ -192,19 +209,14 @@ const AmountField = styled.input.attrs('text')`
 const AmountButton = styled.button`
 `
 
-
-const ItemDeliveryMessage = () => {
-    return (
-        <div id="item-delivery-message">
-            <div id="item-delivery" className="h-[8rem] border border-black">
-                {/* delivery method */}
-            </div>
-            <div id="item-message" className="h-[8rem] border border-black">
-                {/* message */}
-            </div>
-        </div>
-    )
-}
+const BuySection = styled.button`
+    width: 25rem;
+    background-color: rgb(212 212 216);
+    padding: 0 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: between;    
+`
 
 const ItemBuySave = () => {
     return (
