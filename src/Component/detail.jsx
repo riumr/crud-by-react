@@ -48,30 +48,31 @@ const DetailTemplate = () => {
                 </StyledHeader>
                 <main>
                     <div id="item-photo-buy" className="w-[80rem] h-[33rem] flex bg-zinc-300">
-                    <Photo>
-                        <MainPhoto>
-                            <img src="" alt="main_img" />
-                        </MainPhoto>
-                        <SubPhotoGroup>
-                            <SubPhoto />
-                            <SubPhoto />
-                            <SubPhoto />
-                            <SubPhoto />
-                            <SubPhoto />
-                        </SubPhotoGroup>
-                    </Photo>
+                        <Photo>
+                            <MainPhoto>
+                                <img src="" alt="main_img" />
+                            </MainPhoto>
+                            <SubPhotoGroup>
+                                <SubPhoto />
+                                <SubPhoto />
+                                <SubPhoto />
+                                <SubPhoto />
+                                <SubPhoto />
+                            </SubPhotoGroup>
+                        </Photo>
+                    </div>
                     <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
                         <ItemPriceName />
                         <AmoutSettingZone>
                             {/* amount of item */}
-                            <AmountSetting>
+                            <Amount>
                                 <AmountButton>-</AmountButton>
                                 <AmountField/>
                                 <AmountButton>+</AmountButton>
-                            </AmountSetting>
+                            </Amount>
                         </AmoutSettingZone>
                     </div>
-                    <div id="item-buy-info" className="w-[25rem] bg-zinc-200 px-4 flex flex-col justify-between">
+                    <BuySection>
                         <div id="item-delivery-message">
                             <div id="item-delivery" className="h-[8rem] border border-black">
                                 {/* delivery method */}
@@ -80,14 +81,28 @@ const DetailTemplate = () => {
                                 {/* message */}
                             </div>
                         </div>
+                        <div>
                             <ItemBuySave />
                         </div>
-                    </div>
+                    </BuySection>
                     {/* sticky 스타일 적용 중 요소 위치 문제 발생 */}
                     <div id="item-description-review" className="w-[53.5rem] h-full border border-black">
-                        <ItemDescription />
-                        <ItemRating />
-                        <ItemReview />
+                    <div id="item-description">
+                        <button id="item-info-button" className="w-[17rem] h-9 border border-black">상품정보</button>
+                        <button id="review-button" className="w-[17rem] h-9 border border-black">리뷰</button>
+                        {/* item description image */}
+                        <img src="" alt="item_image" className="w-full h-[54rem] bg-zinc-300"/>
+                    </div>
+                    <div id="item-rating" className="flex justify-around p-9">
+                        {/* ratings */}
+                        <div id="item-average_rating" className="w-[15rem] h-[10rem] bg-zinc-300"></div>
+                        <div id="item-rating-set" className="w-[25rem] h-[10rem] bg-zinc-300"></div>
+                    </div>
+                    <div id="item-review">
+                        {/* reviews */}
+                        <div id="item-review-title" className="w-full h-[3rem] bg-zinc-300">리뷰제목</div>
+                        <div id="item-review-content" className="w-full h-[12rem] bg-zinc-200"></div>
+                    </div>
                     </div>
                 </main>
                 <footer></footer>
@@ -184,18 +199,11 @@ const AmoutSettingZone = styled.div`
     border-color: rgb(0 0 0);
 `
 
-const AmountSetting = styled.div`
+const Amount = styled.div`
     widht:9rem;
     height:2rem;
     display: flex;
     gap: 8px
-`
-
-const Amount = styled.div`
-    width: 9rem;
-    height: 2rem;
-    display: flex;
-    gap: 8px;
 `
 
 const AmountField = styled.input.attrs('text')`
@@ -209,7 +217,7 @@ const AmountField = styled.input.attrs('text')`
 const AmountButton = styled.button`
 `
 
-const BuySection = styled.button`
+const BuySection = styled.div`
     width: 25rem;
     background-color: rgb(212 212 216);
     padding: 0 1rem 0 1rem;
@@ -221,48 +229,31 @@ const BuySection = styled.button`
 const ItemBuySave = () => {
     return (
         <div id="item-buy-save">
-            <button id="buy-button" className="w-full h-[4rem] border border-black rounded-[1rem]">
+            <BuyButton>
                 {/* buy button */}
                 buy
-            </button>
-            <button id="save-button" className="w-full h-[4rem] border border-black rounded-[1rem]">
+            </BuyButton>
+            <SaveButton>
                 {/* bucket save button */}
                 save
-            </button>
+            </SaveButton>
         </div>
     )
 }
 
-const ItemDescription = () => {
-    return (
-        <div id="item-description">
-            <button id="item-info-button" className="w-[17rem] h-9 border border-black">상품정보</button>
-            <button id="review-button" className="w-[17rem] h-9 border border-black">리뷰</button>
-            {/* item description image */}
-            <img src="" alt="item_image" className="w-full h-[54rem] bg-zinc-300"/>
-        </div>
-    )
-}
+const BuyButton = styled.button`
+    width: 100%;
+    height: 4rem;
+    border-color: black;
+    border-radius: 1rem;
+`
 
-const ItemRating = () => {
-    return (
-        <div id="item-rating" className="flex justify-around p-9">
-            {/* ratings */}
-            <div id="item-average_rating" className="w-[15rem] h-[10rem] bg-zinc-300"></div>
-            <div id="item-rating-set" className="w-[25rem] h-[10rem] bg-zinc-300"></div>
-        </div>
-    )
-}
-
-const ItemReview = () => {
-    return (
-        <div id="item-review">
-            {/* reviews */}
-            <div id="item-review-title" className="w-full h-[3rem] bg-zinc-300">리뷰제목</div>
-            <div id="item-review-content" className="w-full h-[12rem] bg-zinc-200"></div>
-        </div>
-    )
-}
+const SaveButton = styled.button`
+    width: 100%;
+    height: 4rem;
+    border-color: black;
+    border-radius: 1rem;
+`
 
 const TopDiv = ({data}) => {
     return (
