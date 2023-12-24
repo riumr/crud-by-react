@@ -64,7 +64,6 @@ const DetailTemplate = () => {
                     <div id="item-summary" className="w-[27rem] h-[27rem] flex flex-col justify-between px-4">
                         <ItemPriceName />
                         <AmoutSettingZone>
-                            {/* amount of item */}
                             <Amount>
                                 <AmountButton>-</AmountButton>
                                 <AmountField/>
@@ -74,12 +73,12 @@ const DetailTemplate = () => {
                     </div>
                     <BuySection>
                         <div id="item-delivery-message">
-                            <div id="item-delivery" className="h-[8rem] border border-black">
-                                {/* delivery method */}
-                            </div>
-                            <div id="item-message" className="h-[8rem] border border-black">
-                                {/* message */}
-                            </div>
+                            <Delivery>
+                                <p></p>
+                            </Delivery>
+                            <SellerMessage>
+                                <p></p>
+                            </SellerMessage>
                         </div>
                         <div>
                             <ItemBuySave />
@@ -88,16 +87,16 @@ const DetailTemplate = () => {
                     {/* sticky 스타일 적용 중 요소 위치 문제 발생 */}
                     <div id="item-description-review" className="w-[53.5rem] h-full border border-black">
                     <div id="item-description">
-                        <button id="item-info-button" className="w-[17rem] h-9 border border-black">상품정보</button>
-                        <button id="review-button" className="w-[17rem] h-9 border border-black">리뷰</button>
+                        <Info>상품정보</Info>
+                        <Review>리뷰</Review>
                         {/* item description image */}
                         <img src="" alt="item_image" className="w-full h-[54rem] bg-zinc-300"/>
                     </div>
-                    <div id="item-rating" className="flex justify-around p-9">
+                    <Rating>
                         {/* ratings */}
                         <div id="item-average_rating" className="w-[15rem] h-[10rem] bg-zinc-300"></div>
                         <div id="item-rating-set" className="w-[25rem] h-[10rem] bg-zinc-300"></div>
-                    </div>
+                    </Rating>
                     <div id="item-review">
                         {/* reviews */}
                         <div id="item-review-title" className="w-full h-[3rem] bg-zinc-300">리뷰제목</div>
@@ -226,6 +225,13 @@ const BuySection = styled.div`
     justify-content: between;    
 `
 
+const Delivery = styled.div`
+    height: 8rem;
+    border-color: black;
+`
+
+const SellerMessage = Delivery
+
 const ItemBuySave = () => {
     return (
         <div id="item-buy-save">
@@ -255,6 +261,23 @@ const SaveButton = styled.button`
     border-radius: 1rem;
 `
 
+const Info = styled.button`
+    width: 17rem;
+    height: 2.25rem;
+    border-color: black;
+`
+
+const Review = styled.button`
+    width: 17rem;
+    height: 2.25rem;
+    border-color: black;
+`
+const Rating = styled.div`
+    display: flex;
+    justify-content: space-around;
+    padding: 36px;
+`
+
 const TopDiv = ({data}) => {
     return (
         <div className="top-div">
@@ -276,5 +299,3 @@ const TopDiv = ({data}) => {
         </div>
     )
 }
-
-export {Detail, DetailTemplate, ItemPriceName};
