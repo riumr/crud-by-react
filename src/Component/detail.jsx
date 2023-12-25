@@ -93,9 +93,8 @@ const DetailTemplate = () => {
                         <img src="" alt="item_image" className="w-full h-[54rem] bg-zinc-300"/>
                     </div>
                     <Rating>
-                        {/* ratings */}
-                        <div id="item-average_rating" className="w-[15rem] h-[10rem] bg-zinc-300"></div>
-                        <div id="item-rating-set" className="w-[25rem] h-[10rem] bg-zinc-300"></div>
+                        <AverageRating></AverageRating>
+                        <RatingSet></RatingSet>
                     </Rating>
                     <div id="item-review">
                         {/* reviews */}
@@ -276,6 +275,18 @@ const Rating = styled.div`
     display: flex;
     justify-content: space-around;
     padding: 36px;
+`
+
+const AverageRating = styled.div`
+    width: 15rem;
+    height: 10rem;
+    background-color: rgb(212 212 216);
+`
+
+const RatingSet = styled.div`
+    width: 25rem;
+    height: 10rem;
+    background-color: rgb(212 212 216);
 `
 
 const TopDiv = ({data}) => {
